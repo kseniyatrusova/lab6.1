@@ -1,0 +1,17 @@
+import random
+
+stud={"Башлыкова","Калашникова","Егорова","Белоцерковский","Петров", "Смирнов", "Сидоров", "Васильев","Прохоренкова","Попов"}
+lang={"Русский", "Английский", "Французский", "Немецкий", "Китайский"}
+lang_stud = {}
+for i in stud:
+    k = random.randint(1,5)
+    lang_stud[i] = random.sample(list(lang), k)
+print(lang_stud)
+
+un_lang = set()
+for t in lang_stud:
+    un_lang = un_lang.union(set(lang_stud[t]))
+print("Языки, которые знают студенты: ", *sorted(un_lang), f" (",len(un_lang),")")
+
+ch = [i for i in lang_stud if "Китайский" in lang_stud[i]]
+print("Студенты, знающие китайский: ", *ch)
